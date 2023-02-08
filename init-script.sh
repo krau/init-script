@@ -19,8 +19,7 @@ if [ $(getconf WORD_BIT) != '32' ] && [ $(getconf LONG_BIT) != '64' ]; then
 fi
 
 # 升级软件
-apt-get update
-apt-get upgrade -y
+apt-get update && apt-get upgrade -y
 
 # 安装必要的软件
 apt-get install -y wget curl unzip git nano tmux htop vnstat
@@ -30,5 +29,4 @@ curl -fsSL https://get.docker.com | bash -s docker
 
 # 安装 zsh
 apt-get install -y zsh
-chsh -s /bin/zsh
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+chsh -s $(which zsh)
